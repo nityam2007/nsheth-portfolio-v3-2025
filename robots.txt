@@ -1,0 +1,24 @@
+# NSheth.in Robots.txt
+# Allow all search engines
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nsheth.in/sitemap.xml
+
+# Disallow sensitive paths
+Disallow: /data/
+Disallow: /.htaccess
+Disallow: /*.php$
+Disallow: /oldsite
+Disallow: /*.bak$
+Disallow: /*.log$
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
+
+# Allow assets
+Allow: /assets/
+Allow: /style.css
+Allow: /script.js

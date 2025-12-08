@@ -1,0 +1,170 @@
+<!-- Work I've Done Section -->
+<section id="work" class="projects-section">
+    <div class="container">
+        <div class="projects-header">
+            <h2>Work I've Done</h2>
+            <h3>Here are some of the things I've built — real projects made for real people. 
+                <span style="color: var(--accent-color);">Tap to explore each one in detail.</span>
+            </h3>
+        </div>
+        
+        
+        
+        
+        
+        <div class="projects-grid">
+            
+            
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/ubrangrip-home.webp" alt="Project 5" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Urbangrip Home (2025)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/myrentagreement.in_.webp" alt="Project 4" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>My Rent Agreement (Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            
+            
+            <!-- Project 1 -->
+            
+             <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/09/screencapture-shopwingsservices-in-2025-09-11-18_17_33.png" alt="Project 1" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Wings Services</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/vedapdf-home.webp" alt="Project 1" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>VedaPDF (2024 Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            
+            
+            
+             
+            
+              <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/urbangrip-admin.webp" alt="Project 5.2" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Urbangrip Admin (2025)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+             <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/nsheth.in-archive.webp" alt="Project 6" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>NSheth.in (Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+                <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/electron.gimb_.in_.webp" alt="Project 7" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Electron Engg (2025)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+               <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/safehome.gimb_.in_.webp" alt="Project 8" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>SafeHome (2025)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+             <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/nityam.nsheth.in-archive-.webp" alt="Project 8" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>Nityam Portfolio (2024 Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Project 2 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/gurufit-ad-thumbnail.webp" alt="Project 2" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>GuruFit (2024 Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="/wp-content/uploads/2025/07/mvgrphic.webp" alt="Project 3" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h4>MV Graphic (2024 Archive)</h4>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            
+            
+            
+        </div>
+    </div>
+</section>
+

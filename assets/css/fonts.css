@@ -1,0 +1,43 @@
+/* Local Google Fonts - GDPR Compliant */
+
+/* Domine - Serif Heading Font */
+@font-face {
+    font-family: 'Domine';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/domine-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Domine';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/domine-bold.woff2') format('woff2');
+}
+
+/* Manrope - Sans-serif Body Font */
+@font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/manrope-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/manrope-semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/manrope-bold.woff2') format('woff2');
+}

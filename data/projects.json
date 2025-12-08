@@ -1,0 +1,118 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "Urbangrip Home",
+            "year": "2025",
+            "category": "E-Commerce",
+            "description": "Modern e-commerce platform for urban lifestyle products with integrated inventory management.",
+            "image": "assets/projects/urbangrip-home.webp",
+            "link": "#",
+            "featured": true
+        },
+        {
+            "id": 2,
+            "title": "My Rent Agreement",
+            "year": "Archive",
+            "category": "SaaS",
+            "description": "Online rental agreement generation platform with digital signatures and legal compliance.",
+            "image": "assets/projects/myrentagreement.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 3,
+            "title": "Wings Services",
+            "year": "2025",
+            "category": "Corporate",
+            "description": "Corporate services website with booking system and client management portal.",
+            "image": "assets/projects/wings-services.png",
+            "link": "#",
+            "featured": true
+        },
+        {
+            "id": 4,
+            "title": "VedaPDF",
+            "year": "2024",
+            "category": "AI Tool",
+            "description": "AI-powered PDF analysis and question-answering tool using RAG technology.",
+            "image": "assets/projects/vedapdf.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 5,
+            "title": "Urbangrip Admin",
+            "year": "2025",
+            "category": "Dashboard",
+            "description": "Custom admin dashboard for product management, orders, and analytics.",
+            "image": "assets/projects/urbangrip-admin.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 6,
+            "title": "NSheth.in",
+            "year": "Archive",
+            "category": "Portfolio",
+            "description": "Previous version of my personal portfolio showcasing earlier work.",
+            "image": "assets/projects/nsheth-archive.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 7,
+            "title": "Electron Engg",
+            "year": "2025",
+            "category": "Business",
+            "description": "Engineering company website with project portfolio and client testimonials.",
+            "image": "assets/projects/electron-engg.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 8,
+            "title": "SafeHome",
+            "year": "2025",
+            "category": "Business",
+            "description": "Home security solutions website with product catalog and installation booking.",
+            "image": "assets/projects/safehome.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 9,
+            "title": "Nityam Portfolio",
+            "year": "2024",
+            "category": "Portfolio",
+            "description": "Earlier iteration of my developer portfolio with different design approach.",
+            "image": "assets/projects/nityam-portfolio.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 10,
+            "title": "GuruFit",
+            "year": "2024",
+            "category": "Fitness",
+            "description": "Fitness coaching platform with workout plans and nutrition tracking.",
+            "image": "assets/projects/gurufit.webp",
+            "link": "#",
+            "featured": false
+        },
+        {
+            "id": 11,
+            "title": "MV Graphic",
+            "year": "2024",
+            "category": "Agency",
+            "description": "Graphic design agency website with portfolio and service booking system.",
+            "image": "assets/projects/mvgraphic.webp",
+            "link": "#",
+            "featured": false
+        }
+    ],
+    "meta": {
+        "lastUpdated": "2025-12-08",
+        "totalProjects": 11
+    }
+}

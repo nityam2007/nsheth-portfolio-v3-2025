@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+error_log
+
+# Backups
+*.bak
+*.backup
+~/BKP/
+
+# Environment
+.env
+.env.local
+
+# Cache
+.cache/
