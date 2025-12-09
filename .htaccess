@@ -1,95 +1,291 @@
 # NSheth Portfolio - Apache Configuration
 # ========================================
+# Production-Ready Headers, Caching & Routing
 
 # Enable URL Rewriting
 RewriteEngine On
+RewriteBase /
 
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# ========================================
+# HTTPS & WWW REDIRECTS
+# ========================================
+
+# Force HTTPS (uncomment for production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Redirect www to non-www (nsheth.in)
 RewriteCond %{HTTP_HOST} ^www\.nsheth\.in [NC]
 RewriteRule ^(.*)$ https://nsheth.in/$1 [L,R=301]
 
-# Remove trailing slashes
+# Remove trailing slashes (except for root)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
-# Serve index.php as the default (for PHP servers)
+# ========================================
+# URL ROUTING (Matches router.php)
+# ========================================
+
+# Homepage: / -> index.php
+RewriteRule ^$ index.php [L]
+
+# Blog listing: /blog -> blog.php
+RewriteRule ^blog/?$ blog.php [L,QSA]
+
+# Individual blog posts: /blog/post-slug -> blog/index.php?slug=post-slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/([a-z0-9\-]+)/?$ blog/index.php?slug=$1 [L,QSA]
+
+# Privacy page: /privacy -> privacy.php
+RewriteRule ^privacy/?$ privacy.php [L,QSA]
+
+# Terms page: /terms -> terms.php  
+RewriteRule ^terms/?$ terms.php [L,QSA]
+
+# Contact form handler: /contact -> contact.php
+RewriteRule ^contact/?$ contact.php [L,QSA]
+
+# Serve static files directly (if they exist)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 404 handler: All other requests -> 404.php
+RewriteRule ^(.*)$ 404.php [L]
+
+# Default directory index
 DirectoryIndex index.php index.html
 
-# Enable GZIP Compression
+# ========================================
+# GZIP COMPRESSION
+# ========================================
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml text/javascript application/javascript application/json application/xml image/svg+xml
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json application/ld+json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2
+    AddOutputFilterByType DEFLATE application/font-woff application/font-woff2 application/vnd.ms-fontobject
+    
+    # Remove browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 </IfModule>
 
-# Browser Caching
+# ========================================
+# BROWSER CACHING (Expires Headers)
+# ========================================
 <IfModule mod_expires.c>
     ExpiresActive On
     
-    # Images
+    # Default: 1 week
+    ExpiresDefault "access plus 1 week"
+    
+    # HTML - no cache (dynamic content)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # CSS and JavaScript - 1 month
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Images - 1 year (immutable assets)
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
     
-    # CSS and JavaScript
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
-    
-    # Fonts
+    # Fonts - 1 year
     ExpiresByType font/woff2 "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
     ExpiresByType application/font-woff2 "access plus 1 year"
     ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
     
-    # HTML
-    ExpiresByType text/html "access plus 1 hour"
+    # JSON - no cache (API responses)
+    ExpiresByType application/json "access plus 0 seconds"
+    
+    # PDF - 1 month
+    ExpiresByType application/pdf "access plus 1 month"
 </IfModule>
 
-# Security Headers
+# ========================================
+# CACHE-CONTROL HEADERS
+# ========================================
+<IfModule mod_headers.c>
+    # HTML/PHP: No cache (always revalidate)
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+    
+    # CSS & JS: Cache 1 month with stale-while-revalidate
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+    </FilesMatch>
+    
+    # Images: Long cache 1 year (immutable)
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|ico|svg)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # Fonts: Long cache 1 year (immutable)
+    <FilesMatch "\.(woff2|woff|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    
+    # PDF: Cache 1 month
+    <FilesMatch "\.pdf$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# ========================================
+# SECURITY HEADERS
+# ========================================
 <IfModule mod_headers.c>
     # Prevent MIME type sniffing
-    Header set X-Content-Type-Options "nosniff"
+    Header always set X-Content-Type-Options "nosniff"
     
     # Enable XSS filtering
-    Header set X-XSS-Protection "1; mode=block"
+    Header always set X-XSS-Protection "1; mode=block"
     
     # Prevent clickjacking
-    Header set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Frame-Options "SAMEORIGIN"
     
     # Referrer Policy
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
     
-    # Remove server signature
+    # Permissions Policy (disable unused features)
+    Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'"
+    
+    # Strict Transport Security (HSTS) - 1 year (uncomment for production)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Remove server info
     Header unset Server
+    Header unset X-Powered-By
 </IfModule>
 
-# Prevent access to sensitive files
+# ========================================
+# FILE PROTECTION
+# ========================================
+
+# Block access to sensitive files
 <FilesMatch "(^#.*#|\.(bak|conf|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
-    Require all denied
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Block access to JSON data files
+<FilesMatch "^(projects|.*\.json)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
 </FilesMatch>
 
 # Protect .htaccess
 <Files .htaccess>
-    Require all denied
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
 </Files>
 
-# Custom Error Pages (optional)
-# ErrorDocument 404 /404.html
-# ErrorDocument 500 /500.html
+# Protect .git directory
+RedirectMatch 404 /\.git
+
+# Block access to data directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^data/ - [F,L]
+    RewriteRule ^helper/ - [F,L]
+    RewriteRule ^dataforai/ - [F,L]
+</IfModule>
+
+# ========================================
+# ERROR PAGES
+# ========================================
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+ErrorDocument 500 /404.php
+
+# ========================================
+# MISC SETTINGS
+# ========================================
 
 # Disable directory browsing
 Options -Indexes
 
-# Enable proper MIME types for fonts
+# Disable server signature
+ServerSignature Off
+
+# Enable proper MIME types
 <IfModule mod_mime.c>
+    # Fonts
     AddType font/woff2 .woff2
     AddType font/woff .woff
-    AddType image/svg+xml .svg
+    AddType font/ttf .ttf
+    AddType font/otf .otf
+    AddType application/vnd.ms-fontobject .eot
+    
+    # Images
+    AddType image/svg+xml .svg .svgz
+    AddType image/webp .webp
+    AddType image/avif .avif
+    
+    # JavaScript
+    AddType application/javascript .js
+    AddType application/javascript .mjs
+    
+    # JSON
+    AddType application/json .json
+    AddType application/ld+json .jsonld
+    
+    # Web manifest
+    AddType application/manifest+json .webmanifest
+    
+    # PHP
+    AddType application/x-httpd-php .php
+</IfModule>
+
+# Enable Keep-Alive connections
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Disable ETags (use Cache-Control instead)
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# ========================================
+# PHP SETTINGS (if available)
+# ========================================
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value max_execution_time 30
+    php_value memory_limit 128M
+    php_value post_max_size 10M
+    php_value upload_max_filesize 10M
 </IfModule>

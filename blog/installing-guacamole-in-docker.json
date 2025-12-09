@@ -1,0 +1,19 @@
+{
+    "slug": "installing-guacamole-in-docker",
+    "title": "Installing Guacamole in Docker",
+    "excerpt": "Installing Guacamole in DockerGuacamole is an open-source remote desktop gateway that provides access to your devices over a web browser without exposing your sensitive...",
+    "content": "<img height=\"450\" src=\"https://i.ytimg.com/vi/09eBJiWx4lo/maxresdefault.jpg\" width=\"800\" loading=\"lazy\"><br></p><p><h1>Installing Guacamole in Docker</h1><br><p>Guacamole is an open-source remote desktop gateway that provides access to your devices over a web browser without exposing your sensitive information. By deploying Guacamole in Docker, you can simplify the installation process and ensure a consistent environment across different platforms.</p></p><p><h2>Prerequisites:</h2><br><ul><br><li>Installed Docker and Docker Compose</li><br><li>Basic understanding of Docker and Docker Compose</li><br></ul></p><p><h2>Step 1: Create a Docker Compose File</h2><br><p>Start by creating a <code>docker-compose.yml</code> file in your desired directory. Copy and paste the following content into the file:</p></p><p><pre><br>version: \"3\"<br>services:<br> guacamole:<br> image: abesnier/guacamole<br> container_name: guacamole<br> volumes:<br> - /nas/WP/guac/postgres:/config<br> ports:<br> - 9090:8080<br>volumes:<br> postgres:<br> driver: local<br></pre></p><p><h2>Step 2: Start Guacamole Container</h2><br><p>Open a terminal and navigate to the directory containing your <code>docker-compose.yml</code> file. Run the following command to start the Guacamole container:</p></p><p><pre><br> docker-compose up -d<br></pre></p><p><p>This command will download the Guacamole image and start a container named <code>guacamole</code>.</p></p><p><h2>Step 3: Access Guacamole Web Interface</h2><br><p>Once the container is up and running, you can access the Guacamole web interface by opening a web browser and navigating to <code>http://localhost:9090</code>.</p></p><p><h2>Step 4: Configure Guacamole</h2><br><p>Follow the on-screen instructions to set up your Guacamole instance. You'll need to configure the database settings and create user accounts for accessing remote devices.</p></p><p><h2>Conclusion:</h2><br><p>Congratulations! You've successfully installed Guacamole in Docker using Docker Compose. Guacamole provides a user-friendly and secure way to access your devices remotely through a web browser. Docker's containerization ensures a consistent and isolated environment for your Guacamole instance, making it easier to manage and maintain.</p></p><p><p><em>Note: Make sure to replace the <code>/nas/WP/guac/postgres</code> volume path with your preferred directory path for storing configuration data.</em></p><br>",
+    "author": "Nityam Sheth",
+    "date": "2023-08-14",
+    "readTime": "2 min read",
+    "category": "Docker",
+    "tags": [
+        "blogger",
+        "cybersecurity",
+        "devops",
+        "docker",
+        "vnc",
+        "vpn"
+    ],
+    "image": "assets/blog/installing-guacamole-in-docker-featured.jpg"
+}

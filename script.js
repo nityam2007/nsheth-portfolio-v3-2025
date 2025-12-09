@@ -18,6 +18,7 @@
         initSmoothScroll();
         initProjectModal();
         initResumeAnimations();
+        initContactForm();
     });
 
     // ==================== Loading Screen ====================
@@ -149,6 +150,15 @@
     function initHeader() {
         const header = document.getElementById('header');
         if (!header) return;
+
+        // Check if page has a hero section (only homepage has one)
+        const hasHero = document.querySelector('.hero');
+
+        // If no hero, keep header always scrolled (for blog, etc.)
+        if (!hasHero) {
+            header.classList.add('scrolled');
+            return;
+        }
 
         let ticking = false;
 
@@ -369,6 +379,66 @@
         }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
 
         introElements.forEach(el => introObserver.observe(el));
+    }
+
+    // ==================== Contact Form ====================
+    function initContactForm() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+
+            // Disable and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    submitBtn.style.background = '#4CAF50';
+                    form.reset();
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error(result.message || 'Failed to send message');
+                }
+            } catch (error) {
+                // Error
+                submitBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+                submitBtn.style.background = '#f44336';
+
+                // Show error message
+                const errorMsg = document.createElement('p');
+                errorMsg.className = 'form-error';
+                errorMsg.textContent = error.message || 'Something went wrong. Please try again.';
+                errorMsg.style.cssText = 'color: #f44336; text-align: center; margin-top: 12px; font-size: 0.875rem;';
+                form.appendChild(errorMsg);
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    errorMsg.remove();
+                }, 4000);
+            }
+        });
     }
 
 })();

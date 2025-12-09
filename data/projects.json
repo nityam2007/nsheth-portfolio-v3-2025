@@ -5,9 +5,9 @@
             "title": "Urbangrip Home",
             "year": "2025",
             "category": "E-Commerce",
-            "description": "Modern e-commerce platform for urban lifestyle products with integrated inventory management.",
+            "description": "Modern e-commerce platform for urban lifestyle products with integrated inventory management and seamless checkout experience.",
             "image": "assets/projects/urbangrip-home.webp",
-            "link": "#",
+            "link": null,
             "featured": true
         },
         {
@@ -15,9 +15,9 @@
             "title": "My Rent Agreement",
             "year": "Archive",
             "category": "SaaS",
-            "description": "Online rental agreement generation platform with digital signatures and legal compliance.",
+            "description": "Online rental agreement generation platform with digital signatures, legal compliance, and automated document delivery.",
             "image": "assets/projects/myrentagreement.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -25,9 +25,9 @@
             "title": "Wings Services",
             "year": "2025",
             "category": "Corporate",
-            "description": "Corporate services website with booking system and client management portal.",
+            "description": "Corporate services website with booking system, client management portal, and service tracking dashboard.",
             "image": "assets/projects/wings-services.png",
-            "link": "#",
+            "link": null,
             "featured": true
         },
         {
@@ -35,9 +35,9 @@
             "title": "VedaPDF",
             "year": "2024",
             "category": "AI Tool",
-            "description": "AI-powered PDF analysis and question-answering tool using RAG technology.",
+            "description": "AI-powered document analysis tool using RAG (Retrieval-Augmented Generation) for intelligent PDF Q&A and summarization.",
             "image": "assets/projects/vedapdf.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -45,9 +45,9 @@
             "title": "Urbangrip Admin",
             "year": "2025",
             "category": "Dashboard",
-            "description": "Custom admin dashboard for product management, orders, and analytics.",
+            "description": "Custom admin dashboard for product management, inventory control, order tracking, and real-time analytics.",
             "image": "assets/projects/urbangrip-admin.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -55,9 +55,9 @@
             "title": "NSheth.in",
             "year": "Archive",
             "category": "Portfolio",
-            "description": "Previous version of my personal portfolio showcasing earlier work.",
+            "description": "Previous version of my personal portfolio featuring a different design approach and project showcase.",
             "image": "assets/projects/nsheth-archive.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -65,9 +65,9 @@
             "title": "Electron Engg",
             "year": "2025",
             "category": "Business",
-            "description": "Engineering company website with project portfolio and client testimonials.",
+            "description": "Engineering company website with project portfolio, service listings, and client testimonials section.",
             "image": "assets/projects/electron-engg.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -75,9 +75,9 @@
             "title": "SafeHome",
             "year": "2025",
             "category": "Business",
-            "description": "Home security solutions website with product catalog and installation booking.",
+            "description": "Home security solutions website with product catalog, installation booking, and support portal.",
             "image": "assets/projects/safehome.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -85,9 +85,9 @@
             "title": "Nityam Portfolio",
             "year": "2024",
             "category": "Portfolio",
-            "description": "Earlier iteration of my developer portfolio with different design approach.",
+            "description": "Earlier iteration of my developer portfolio exploring minimalist design and interactive animations.",
             "image": "assets/projects/nityam-portfolio.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -95,9 +95,9 @@
             "title": "GuruFit",
             "year": "2024",
             "category": "Fitness",
-            "description": "Fitness coaching platform with workout plans and nutrition tracking.",
+            "description": "Fitness coaching platform with personalized workout plans, nutrition tracking, and progress monitoring.",
             "image": "assets/projects/gurufit.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         },
         {
@@ -105,14 +105,14 @@
             "title": "MV Graphic",
             "year": "2024",
             "category": "Agency",
-            "description": "Graphic design agency website with portfolio and service booking system.",
+            "description": "Graphic design agency website with portfolio gallery, service booking, and client dashboard.",
             "image": "assets/projects/mvgraphic.webp",
-            "link": "#",
+            "link": null,
             "featured": false
         }
     ],
     "meta": {
-        "lastUpdated": "2025-12-08",
+        "lastUpdated": "2025-12-09",
         "totalProjects": 11
     }
 }

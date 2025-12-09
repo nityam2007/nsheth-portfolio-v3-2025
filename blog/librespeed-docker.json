@@ -1,0 +1,17 @@
+{
+    "slug": "librespeed-docker",
+    "title": "Librespeed with Docker: Simplifying Internet Speed Monitoring",
+    "excerpt": "In today's digital age, having a reliable and efficient way to monitor internet speed is critical, a...",
+    "content": "<img height=\"544\" src=\"https://speedtest.fdossena.com/mpot_v6.gif\" width=\"800\" loading=\"lazy\"></p><p><br>In today's digital age, having a reliable and efficient way to monitor internet speed is critical, and Librespeed, an open-source internet speed test tool, provides an ideal solution for this purpose. Deploying Librespeed with Docker provides a hassle-free approach to internet speed monitoring, whether for personal or professional use. <h2>Using the Docker CLI to deploy Librespeed</h2><p>Follow these steps to start Librespeed using Docker's Command Line Interface (CLI):</p><pre><code>docker run -d --name=librespeed -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -e PASSWORD=YOUR_PASSWORD -p 3060:80 -v /nas/docker-common/librespeed/config:/config --restart unless-stopped lscr.io/linuxserver/librespeed:latest </code></pre><p>This command launches the Librespeed container, specifying important parameters like User IDs (PUID and PGID), Time Zone (TZ), and a user-defined password, as well as establishing port mappings and mounting a drive for configuration files, ensuring seamless access and management.</p><h2>Using Docker Compose with Librespeed</h2><p>Use Docker Compose to simplify the deployment process. Create a file called docker-compose.yml with the following content:</p><pre><code>version: \"2.1\" services: librespeed: image: lscr.io/linuxserver/librespeed:latest container_name: librespeed environment: - PUID=1000 - PGID=1000 - TZ=Etc/UTC - PASSWORD=YOUR_PASSWORD volumes: - /nas/docker-common/librespeed/config:/config ports: - 3060:80 restart: unless-stopped </code></pre><p>This Docker Compose file describes the Librespeed service, including environment variables, volumes for data persistence, port mappings, and restart policies, making Librespeed management more efficient and systematic.</p><h2>The Advantages of Integrating Librespeed and Docker</h2><ul><li>Docker CLI and Docker Compose both provide simpler deployment methods for Librespeed, eliminating setup hassles.</li><li>Configuration Flexibility: Docker allows for simple configuration changes, allowing users to tailor parameters such as user IDs, passwords, and ports to their own requirements.</li><li>Isolated Environment: Using Docker ensures that Librespeed runs in an isolated environment, avoiding any conflicts with other apps or system resources.</li><li>Scalability: Docker's containerized architecture allows for easy scalability of Librespeed instances, making it suited to a variety of contexts.</li></ul><h2>Conclusion</h2><p>The combination of Librespeed's functionality and Docker's containerization capabilities ensures a robust and easily manageable internet speed monitoring setup, whether deployed via Docker CLI or Docker Compose.</p>",
+    "author": "Nityam Sheth",
+    "date": "2023-12-14",
+    "readTime": "3 min read",
+    "category": "Docker",
+    "tags": [
+        "devops",
+        "docker",
+        "hosting",
+        "opensource"
+    ],
+    "image": "assets/blog/librespeed-docker-featured.gif"
+}

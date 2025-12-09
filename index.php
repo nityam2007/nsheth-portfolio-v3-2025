@@ -15,10 +15,10 @@ $site = [
     'title' => 'Nityam Sheth – Developer & Maker',
     'email' => 'hello@nsheth.in',
     'phone' => '+919664833459',
-    'photo' => 'assets/profile.jpg',
+    'photo' => 'assets/profile.jpeg',
     'year_started' => 2021,
-    'linkedin' => 'https://linkedin.com/in/nityamsheth',
-    'github' => 'https://github.com/nityamsheth',
+    'linkedin' => 'https://www.linkedin.com/in/nityam-sheth/',
+    'github' => 'https://github.com/nityam2007',
     'whatsapp' => 'https://wa.me/919664833459'
 ];
 
@@ -42,9 +42,26 @@ function stars($n) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Developer & Maker building digital experiences that work.">
+    <meta name="description" content="<?= htmlspecialchars($site['name']) ?> – Full Stack Developer & Maker building fast, scalable digital products. Web development, cloud hosting, AI integration.">
+    <meta name="author" content="<?= htmlspecialchars($site['name']) ?>">
+    <meta name="keywords" content="web developer, full stack, cloud hosting, AI, automation, VPS, Docker, WordPress, portfolio">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nsheth.in/">
     <meta property="og:title" content="<?= htmlspecialchars($site['title']) ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($site['photo']) ?>">
+    <meta property="og:description" content="Full Stack Developer & Maker building fast, scalable digital products.">
+    <meta property="og:image" content="https://nsheth.in/<?= htmlspecialchars($site['photo']) ?>">
+    <meta property="og:site_name" content="NSheth">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= htmlspecialchars($site['title']) ?>">
+    <meta name="twitter:description" content="Full Stack Developer & Maker building fast, scalable digital products.">
+    <meta name="twitter:image" content="https://nsheth.in/<?= htmlspecialchars($site['photo']) ?>">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nsheth.in/">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <title><?= htmlspecialchars($site['title']) ?></title>
     
@@ -52,6 +69,34 @@ function stars($n) {
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "<?= htmlspecialchars($site['name']) ?>",
+        "url": "https://nsheth.in",
+        "image": "https://nsheth.in/<?= htmlspecialchars($site['photo']) ?>",
+        "jobTitle": "Full Stack Developer",
+        "description": "Developer & Maker building digital experiences that work.",
+        "email": "<?= htmlspecialchars($site['email']) ?>",
+        "sameAs": [
+            "<?= htmlspecialchars($site['linkedin']) ?>",
+            "<?= htmlspecialchars($site['github']) ?>"
+        ],
+        "knowsAbout": ["Web Development", "Cloud Hosting", "AI Integration", "Docker", "WordPress", "Automation"]
+    }
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "p64dhs1h75");
+    </script>
 </head>
 <body>
 
@@ -75,6 +120,7 @@ function stars($n) {
                 <a href="#work">Work</a>
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
+                <a href="/blog">Blog</a>
                 <a href="#contact">Contact</a>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
@@ -89,6 +135,7 @@ function stars($n) {
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
+        <a href="/blog">Blog</a>
         <a href="#contact">Contact</a>
         <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
             <i class="fas fa-moon"></i>
@@ -509,6 +556,10 @@ function stars($n) {
                         <div class="about-stat-value"><?= count($projects) ?><span>+</span></div>
                     </div>
                 </div>
+                
+                <a href="assets/resume-nityam-sheth.pdf" download class="btn btn-outline resume-btn">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
         </div>
         </div>
         
@@ -618,7 +669,43 @@ function stars($n) {
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
     <div class="container">
-        <p>© <?= date('Y') ?> NSheth · Made with curiosity & coffee</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">NSheth</span>
+                <p class="footer-tagline">Developer & Maker</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="/blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-social">
+                <a href="<?= htmlspecialchars($site['linkedin']) ?>" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="<?= htmlspecialchars($site['github']) ?>" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="<?= htmlspecialchars($site['whatsapp']) ?>" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:<?= htmlspecialchars($site['email']) ?>" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© <?= date('Y') ?> <?= htmlspecialchars($site['name']) ?> · All Rights Reserved</p>
+            <div class="footer-legal">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+        </div>
     </div>
 </footer>
 
