@@ -171,8 +171,8 @@ DirectoryIndex index.php index.html
     # Permissions Policy (disable unused features)
     Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
     
-    # Content Security Policy
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'"
+    # Content Security Policy (allows Cloudflare Insights + Microsoft Clarity)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://*.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://*.clarity.ms; frame-ancestors 'self'"
     
     # Strict Transport Security (HSTS) - 1 year (uncomment for production)
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"

@@ -23,3 +23,6 @@ error_log
 
 # Cache
 .cache/
+
+dataforai/
+*dataforai*
