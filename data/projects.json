@@ -1,6 +1,16 @@
 {
     "projects": [
         {
+            "id": 0,
+            "title": "Product Shot",
+            "year": "2025",
+            "category": "Landing Page",
+            "description": "No fancy camera needed. Just snap a photo, send it to us, and get professional images that actually sell.",
+            "image": "assets/projects/productshot.webp",
+            "link": null,
+            "featured": false
+        },
+        {
             "id": 1,
             "title": "Urbangrip Home",
             "year": "2025",
